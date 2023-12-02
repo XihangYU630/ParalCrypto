@@ -45,6 +45,10 @@ def create_merkle_tree_vectorized(data, block_size=32, batch_size=8192):
     return leaf_nodes[0]
 
 if __name__ == '__main__':
+
+    # data = b"Low Water Levels and Rising Temperatures: Recently, the Negro River in the Amazon rainforest near Manaus, Brazil, reached its lowest level in 120 years, dropping to just 12.70 meters. In Lake Tefe, located approximately 500 kilometers west, over 150 river dolphins were found dead, likely due to temperatures nearing 40 degrees"
+
+
     original_image_path = 'hash_tree/Lenna.png'
 
     # Assuming data is loaded similarly to your CTR example
@@ -63,5 +67,5 @@ if __name__ == '__main__':
 
     average_time = total_time / num_runs
 
-    print(f"Average Merkle Tree Creation Time for {num_runs} runs:", average_time)
+    print(f"Average Pararllel Merkle Tree Creation Time for {num_runs} runs:", average_time)
     print("Root Hash:", root_hash.hex())

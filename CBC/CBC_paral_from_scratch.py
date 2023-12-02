@@ -58,12 +58,14 @@ if __name__ == '__main__':
     key = get_random_bytes(32)  # AES-256 key
     iv = get_random_bytes(16)   # Initialization vector for CBC mode
 
+    data = b"Low Water Levels and Rising Temperatures: Recently, the Negro River in the Amazon rainforest near Manaus, Brazil, reached its lowest level in 120 years, dropping to just 12.70 meters. In Lake Tefe, located approximately 500 kilometers west, over 150 river dolphins were found dead, likely due to temperatures nearing 40 degrees"
 
-    original_image_path = 'CBC/Lenna.png'
-    decrypted_image_path = 'CBC/Lenna_decrpt_paral.png'
 
-    with open(original_image_path, 'rb') as f:
-        data = f.read()
+    # original_image_path = 'CBC/Lenna.png'
+    # decrypted_image_path = 'CBC/Lenna_decrpt_paral.png'
+
+    # with open(original_image_path, 'rb') as f:
+    #     data = f.read()
 
     num_runs = 50
     total_time_encypt = 0
@@ -90,8 +92,8 @@ if __name__ == '__main__':
     average_time_decrypt = total_time_decypt / num_runs
 
 
-    with open(decrypted_image_path, 'wb') as f:
-        f.write(decrypted_data)
+    # with open(decrypted_image_path, 'wb') as f:
+    #     f.write(decrypted_data)
 
     print("Sequential CBC Encryption Time:", average_time_encrypt)
     print("Parallel CBC Decryption Time:", average_time_decrypt)
