@@ -49,12 +49,16 @@ def ecb_mode_decrypt(data, key):
 # Example usage
 key = get_random_bytes(32)  # AES-256 key
 
-# Assuming data is loaded similarly to your CTR example
-original_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/ECB/Lenna.png'
-decrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/ECB/Lenna_decrpt_seq.png'
 
-with open(original_image_path, 'rb') as f:
-    data = f.read()
+data = b"Low Water Levels and Rising Temperatures: Recently, the Negro River in the Amazon rainforest near Manaus, Brazil, reached its lowest level in 120 years, dropping to just 12.70 meters. In Lake Tefe, located approximately 500 kilometers west, over 150 river dolphins were found dead, likely due to temperatures nearing 40 degrees"
+
+
+# # Assuming data is loaded similarly to your CTR example
+# original_image_path = 'ECB/Lenna.png'
+# decrypted_image_path = 'ECB/Lenna_decrpt_seq.png'
+
+# with open(original_image_path, 'rb') as f:
+#     data = f.read()
 
 # Time sequential ECB encryption
 start_time = time.time()
@@ -68,8 +72,8 @@ decrypted_data = ecb_mode_decrypt(encrypted_data, key)
 end_time = time.time()
 seq_decrypt_time = end_time - start_time
 
-with open(decrypted_image_path, 'wb') as f:
-    f.write(decrypted_data)
+# with open(decrypted_image_path, 'wb') as f:
+#     f.write(decrypted_data)
 
 # print("Original:", data)
 # print("Encrypted:", encrypted_data)

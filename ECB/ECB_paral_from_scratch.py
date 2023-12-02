@@ -4,15 +4,6 @@ import os
 import time
 from Crypto.Cipher import AES
 
-# # Your existing dummy_aes_encrypt_block function
-# def dummy_aes_encrypt_block(block, key):
-#     """
-#     This is a placeholder for the block encryption function.
-#     Replace this with an actual AES block encryption implementation.
-#     """
-#     return block  # This is just a dummy operation
-
-
 def aes_encrypt_block(block, key):
     """
     Encrypts a single 16-byte block of data using AES.
@@ -57,12 +48,15 @@ if __name__ == '__main__':
     # Example usage
     key = get_random_bytes(32)  # AES-256 key
 
-    original_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/ECB/Lenna.png'
-    decrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/ECB/Lenna_decrpt_paral.png'
 
-    # Assuming data is loaded similarly to your CTR example
-    with open(original_image_path, 'rb') as f:
-        data = f.read()
+    data = b"Low Water Levels and Rising Temperatures: Recently, the Negro River in the Amazon rainforest near Manaus, Brazil, reached its lowest level in 120 years, dropping to just 12.70 meters. In Lake Tefe, located approximately 500 kilometers west, over 150 river dolphins were found dead, likely due to temperatures nearing 40 degrees"
+
+    # original_image_path = 'ECB/Lenna.png'
+    # decrypted_image_path = 'ECB/Lenna_decrpt_paral.png'
+
+    # # Assuming data is loaded similarly to your CTR example
+    # with open(original_image_path, 'rb') as f:
+    #     data = f.read()
 
     # Time ECB encryption
     start_time = time.time()
@@ -76,8 +70,8 @@ if __name__ == '__main__':
     end_time = time.time()
     ecb_decrypt_time = end_time - start_time
 
-    with open(decrypted_image_path, 'wb') as f:
-        f.write(decrypted_data)
+    # with open(decrypted_image_path, 'wb') as f:
+    #     f.write(decrypted_data)
 
     print("Paral ECB Encryption Time:", ecb_encrypt_time)
     print("Paral ECB Decryption Time:", ecb_decrypt_time)

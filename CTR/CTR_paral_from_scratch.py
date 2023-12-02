@@ -27,18 +27,18 @@ def xor_bytes(a, b):
 ####################
 ##### solution 1 ###
 ####################
-# def encrypt_block_wrapper(block_key_tuple):
-#     block, key = block_key_tuple
-#     return aes_encrypt_block(block, key)
+def encrypt_block_wrapper(block_key_tuple):
+    block, key = block_key_tuple
+    return aes_encrypt_block(block, key)
 
-# def parallel_encrypt_blocks(blocks, key, block_size):
-#     with ProcessPoolExecutor() as executor:
-#         block_slices = [blocks[i:i+block_size] for i in range(0, len(blocks), block_size)]
-#         # Create a list of tuples for the map function
-#         block_key_pairs = [(block, key) for block in block_slices]
-#         # Map the encrypt_block_wrapper function over the block_key_pairs
-#         encrypted_blocks = executor.map(encrypt_block_wrapper, block_key_pairs)
-#     return b''.join(encrypted_blocks)
+def parallel_encrypt_blocks(blocks, key, block_size):
+    with ProcessPoolExecutor() as executor:
+        block_slices = [blocks[i:i+block_size] for i in range(0, len(blocks), block_size)]
+        # Create a list of tuples for the map function
+        block_key_pairs = [(block, key) for block in block_slices]
+        # Map the encrypt_block_wrapper function over the block_key_pairs
+        encrypted_blocks = executor.map(encrypt_block_wrapper, block_key_pairs)
+    return b''.join(encrypted_blocks)
 
 
 
@@ -85,14 +85,17 @@ def ctr_mode_decrypt(data, key, nonce):
     return ctr_mode_encrypt(data, key, nonce)
 
 if __name__ == '__main__':
+
+
+
     # Example usage
     key = get_random_bytes(32)  # AES-256 key
     nonce = get_random_bytes(16)  # Nonce for CTR mode
 
     # data = b"Low Water Levels and Rising Temperatures: Recently, the Negro River in the Amazon rainforest near Manaus, Brazil, reached its lowest level in 120 years, dropping to just 12.70 meters. In Lake Tefe, located approximately 500 kilometers west, over 150 river dolphins were found dead, likely due to temperatures nearing 40 degrees"
 
-    original_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/CTR/Lenna.png'
-    decrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/CTR/Lenna_decrpt_paral.png'
+    original_image_path = 'CTR/Lenna.png'
+    decrypted_image_path = 'CTR/Lenna_decrpt_paral.png'
 
     with open(original_image_path, 'rb') as f:
         data = f.read()

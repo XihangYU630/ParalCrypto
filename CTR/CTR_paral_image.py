@@ -38,9 +38,9 @@ def process_image_parallel(file_path, output_path, key, nonce, mode='encrypt'):
 key = os.urandom(32) # AES-256 key
 nonce = os.urandom(16) # Nonce for CTR mode
 
-original_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/Lenna.png'
-encrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/image.enc'
-decrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/paralcrypt/Lenna_decrpt.png'
+original_image_path = '/Users/jimmyyu/Desktop/EECS475/ParalCrypto/Lenna.png'
+encrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/ParalCrypto/image.enc'
+decrypted_image_path = '/Users/jimmyyu/Desktop/EECS475/ParalCrypto/Lenna_decrpt.png'
 
 # Encrypt the image in parallel
 start_time = time.time()
